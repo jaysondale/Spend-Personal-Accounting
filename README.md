@@ -30,4 +30,4 @@ Monthly Summary in the top menu bar.
 - Improve system styling
 - Modularize statistics calculations
 
-*Copyright ® Jayson Dale 2020*
+*Author: Jayson Dale ® 2020*
