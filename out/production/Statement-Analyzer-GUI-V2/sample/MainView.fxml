@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainViewController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="importMenuItem" mnemonicParsing="false" onAction="#importStatements" text="Import Statements" />
+                <MenuItem mnemonicParsing="false" onAction="#saveMaps" text="Save" />
+                  <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Statistics">
+                <items>
+                    <MenuItem mnemonicParsing="false" text="View Annual Summary" onAction="#viewAnnualSummary"/>
+                </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Transaction Mapping">
+                <items>
+                    <MenuItem mnemonicParsing="false" onAction="#viewIdMap" text="View/Edit ID Map" />
+                    <MenuItem mnemonicParsing="false" onAction="#viewSsMap" text="View/Edit Substring Map" />
+                </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <TableView fx:id="transactionTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="dateCol" prefWidth="93.0" text="Date" />
+          <TableColumn fx:id="idCol" prefWidth="313.0" text="ID" />
+            <TableColumn fx:id="debitCol" prefWidth="87.0" text="Debit" />
+            <TableColumn fx:id="creditCol" prefWidth="85.0" text="Credit" />
+        </columns>
+      </TableView>
+   </center>
+   <right>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+             <Label text="Date Selector">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label text="Start Date" />
+            <DatePicker fx:id="startDatePicker" promptText="Select Start Date" />
+             <Label text="End Date" />
+             <DatePicker fx:id="endDatePicker" promptText="Select End Date" />
+            <Button mnemonicParsing="false" onAction="#updateDates" text="Update" />
+            <Line endX="100.0" startX="-100.0" />
+             <Label text="Category Statistics">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+             <Label fx:id="balanceLabel" text="Balance Label" />
+             <Label fx:id="numTransLabel" text="Num Transactions Label" />
+             <Label fx:id="avgTransLabel" text="Avg Transaction" />
+             <Line endX="100.0" startX="-100.0" />
+             <Label text="New Substring Map">
+                 <font>
+                     <Font size="18.0" />
+                 </font></Label>
+            <TextField fx:id="substringTextField" promptText="Substring" />
+            <ComboBox fx:id="catComboBox" prefWidth="150.0" promptText="Category" />
+             <Button fx:id="setButton" mnemonicParsing="false" onAction="#createSubstringMap" text="Set" />
+             <Line endX="100.0" startX="-100.0" />
+             <Label text="New Category">
+                 <font>
+                     <Font size="18.0" />
+                 </font></Label>
+             <TextField fx:id="newCatTextField" promptText="Enter Category Name" />
+             <Button mnemonicParsing="false" onAction="#addCategory" text="Add" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets></VBox>
+   </right>
+   <left>
+      <ListView fx:id="categoryListView" onMousePressed="#updateSelectedCategory" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </left>
+</BorderPane>

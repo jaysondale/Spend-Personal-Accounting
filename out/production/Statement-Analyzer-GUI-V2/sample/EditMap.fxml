@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="250.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EditMapController">
+   <children>
+      <Label layoutX="140" layoutY="10" text="Edit Map">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+       <TextField fx:id="keyField" layoutX="100" layoutY="75" />
+       <Label text="Key" layoutX="50" layoutY="75" />
+       <ComboBox prefWidth="150" fx:id="catComboBox" layoutX="100" layoutY="125" />
+       <Label text="Category" layoutX="25" layoutY="125" />
+       <Button prefWidth="75" text="Set" layoutX="50" layoutY="200" onAction="#saveMap"/>
+       <Button prefWidth="75" text="Cancel" layoutX="250" layoutY="200" onAction="#exit"/>
+   </children>
+</AnchorPane>

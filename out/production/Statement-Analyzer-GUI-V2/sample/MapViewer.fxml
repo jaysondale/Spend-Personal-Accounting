@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MapViewerController">
+   <top>
+       <VBox alignment="CENTER" spacing="15.0">
+           <Label text="View Mappings for:">
+               <font>
+                   <Font name="System Bold" size="16" />
+               </font>
+           </Label>
+
+           <ComboBox fx:id="catComboBox" onAction="#updateTable" prefWidth="150" />
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+       </VBox>
+   </top>
+    <center>
+      <TableView fx:id="mapTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="keyCol" prefWidth="198.0" text="Key" />
+          <TableColumn fx:id="catCol" editable="false" minWidth="0.0" prefWidth="200.0" text="Category" />
+        </columns>
+      </TableView>
+   </center>
+</BorderPane>

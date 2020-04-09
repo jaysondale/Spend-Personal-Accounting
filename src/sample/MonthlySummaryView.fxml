@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MonthlySummaryController">
+   <top>
+       <VBox alignment="CENTER">
+           <Label text="Year">
+            <font>
+               <Font size="22.0" />
+            </font></Label>
+           <ComboBox fx:id="yearComboBox" prefWidth="100.0" BorderPane.alignment="CENTER" onAction="#updateTable"/>
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+       </VBox>
+   </top>
+    <center>
+        <TableView fx:id="mainTable">
+         <columns>
+            <TableColumn fx:id="catCol" prefWidth="125.0" text="Category" />
+             <TableColumn fx:id="janCol" prefWidth="75.0" text="January" />
+             <TableColumn fx:id="febCol" prefWidth="75.0" text="February" />
+             <TableColumn fx:id="marCol" prefWidth="75.0" text="March" />
+             <TableColumn fx:id="aprCol" prefWidth="75.0" text="April" />
+             <TableColumn fx:id="mayCol" prefWidth="75.0" text="May" />
+             <TableColumn fx:id="junCol" prefWidth="75.0" text="June" />
+             <TableColumn fx:id="julCol" prefWidth="75.0" text="July" />
+             <TableColumn fx:id="augCol" prefWidth="75.0" text="August" />
+             <TableColumn fx:id="sepCol" prefWidth="75.0" text="September" />
+             <TableColumn fx:id="octCol" prefWidth="75.0" text="October" />
+             <TableColumn fx:id="novCol" prefWidth="75.0" text="November" />
+             <TableColumn fx:id="decCol" prefWidth="75.0" text="December" />
+             <TableColumn fx:id="totCol" prefWidth="75.0" text="Total" />
+         </columns></TableView>
+    </center>
+</BorderPane>
