@@ -29,3 +29,5 @@ Monthly Summary in the top menu bar.
 - Create informative graphs
 - Improve system styling
 - Modularize statistics calculations
+
+*Copyright ® Jayson Dale 2020*
