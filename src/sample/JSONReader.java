@@ -6,11 +6,10 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.lang.reflect.Type;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,7 +29,7 @@ public class JSONReader {
 
         // Attempt to parse JSON file
         try {
-            Object obj = parser.parse(new FileReader(URLDecoder.decode(getClass().getResource(fName).getPath(), java.nio.charset.StandardCharsets.UTF_8.toString())));
+            Object obj = parser.parse(new FileReader(fName));
             JSONObject json = (JSONObject) obj;
 
             // Iterate through all mapped pairs in the json file
@@ -70,7 +69,7 @@ public class JSONReader {
 
         // Use FileWriter to write the gson string to JSON file
         // TODO: Handle FileNotFoundError (create file if it does not exist)
-        FileWriter fw = new FileWriter(URLDecoder.decode(getClass().getResource(fName).getPath(), java.nio.charset.StandardCharsets.UTF_8.toString()));
+        FileWriter fw = new FileWriter(fName);
         PrintWriter pw = new PrintWriter(fw);
         pw.write(gsonString);
 

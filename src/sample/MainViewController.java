@@ -2,6 +2,7 @@ package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -33,6 +34,9 @@ public class MainViewController implements Initializable {
 
     // Main borderPane
     @FXML private BorderPane borderPane;
+
+    // Menu Bar
+    @FXML private MenuBar mainMenuBar;
 
     // UI Tables
     @FXML private TableView<Transaction> transactionTableView;
@@ -103,6 +107,7 @@ public class MainViewController implements Initializable {
 
         // Populate categories listView with all categories found from id map
         categoryListView.setItems(manager.getCategoryNames());
+        categoryListView.getSelectionModel().selectFirst();
 
         // Link table columns with their respective properties from Transaction class
         dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
@@ -152,10 +157,10 @@ public class MainViewController implements Initializable {
 
     }
 
+    /**
+     * Reassigns start and end date variables and computes statistics on the selected category
+     */
     public void updateDates() {
-        /**
-         * Reassigns start and end date variables and computes statistics on the selected category
-         */
         startDate = convertToDateViaSqlDate(startDatePicker.getValue());
         endDate = convertToDateViaSqlDate(endDatePicker.getValue());
         transactionTableView.refresh();
@@ -167,12 +172,11 @@ public class MainViewController implements Initializable {
         return java.sql.Date.valueOf(dateToConvert);
     }
 
+    /**
+     * Calculates the balance, number of transactions, and average transaction amount and updates their respective
+     * labels.
+     */
     private void computeStatistics() {
-        /**
-         * Calculates the balance, number of transactions, and average transaction amount and updates their respective
-         * labels.
-         */
-
         // Temporary to hold current stats
         balance = 0.0;
         numTransactions = 0;
@@ -199,14 +203,13 @@ public class MainViewController implements Initializable {
         avgTransLabel.setText("Average transaction: $" + round((balance/numTransactions),2));
     }
 
-    private static double round(double value, int places) {
-        /**
-         * Helper function that rounds double-type numbers to a specified number of decimal places
-         * @param value The number to be rounded
-         * @param places The number of decimal places to be rounded to (must be greater than or equal to 0)
-         * @return The rounded number
-         * @throws IllegalArgumentException
-         */
+    /**
+     * Helper function that rounds double-type numbers to a specified number of decimal places
+     * @param value Number to be rounded
+     * @param places Number of decimal places to be rounded to
+     * @return Number rounded to desired decimal
+     */
+    private double round(double value, int places) {
         // Only accept places parameter that is greater than or equal to zero
         if (places < 0) throw new IllegalArgumentException();
 
@@ -221,28 +224,28 @@ public class MainViewController implements Initializable {
         return (double) tmp / factor;
     }
 
+    /**
+     * Updates the items in transactionTableView to contain all transactions in the selected category
+     */
     public void updateTransactionList() {
-        /**
-         * Updates the items in transactionTableView to contain all transactions in the selected category
-         */
         transactionTableView.setItems(manager.getCategories().get(manager.getSelectedCategory()));
         transactionTableView.refresh();
     }
 
+    /**
+     * Update categoryListView to display all items in categoryNames
+     * Update the category selector box to contain the current list of category names
+     */
     public void updateCategoryList() {
-        /**
-         * Update categoryListView to display all items in categoryNames
-         * Update the category selector box to contain the current list of category names
-         */
         // TODO: Makes sure catComboBox is updated even if no new category has been created by the user
         categoryListView.setItems(manager.getCategoryNames());
         catComboBox.setItems(manager.getCategoryNames());
     }
 
+    /**
+     * Get the selected category from the listView UI element and update the transaction list
+     */
     public void updateSelectedCategory() {
-        /**
-         * Get the selected category from the listView UI element and update the transaction list
-         */
         // Get selected category
         manager.setSelectedCategory(categoryListView.getSelectionModel().getSelectedItem());
         // Update the transaction list
@@ -253,18 +256,18 @@ public class MainViewController implements Initializable {
         }
     }
 
+    /**
+     * Add the default category to both categoryNames and categories HashMap
+     */
     public void loadCategories() {
-        /**
-         * Add the default category to both categoryNames and categories HashMap
-         */
         manager.getCategoryNames().add(manager.DEFAULT_CATEGORY);
         manager.getCategories().put(manager.DEFAULT_CATEGORY, FXCollections.observableArrayList());
     }
 
+    /**
+     * Adds new category from UI category adder
+     */
     public void addCategory() {
-        /**
-         * Adds new category from UI category adder
-         */
         // Get the text from newCatTextField and temporarily save it
         String name = newCatTextField.getText();
         // Check to make sure the category is unique
@@ -279,10 +282,10 @@ public class MainViewController implements Initializable {
         updateCategoryList();
     }
 
+    /**
+     * Adds new substring map from UI to ssMap
+     */
     public void createSubstringMap() {
-        /**
-         * Adds new substring map from UI to ssMap
-         */
         // Get the mapped category from catComboBox
         String cat = catComboBox.getSelectionModel().getSelectedItem();
         // Get substring
@@ -290,71 +293,17 @@ public class MainViewController implements Initializable {
         // Create a temporary hashmap containing the new mapping for efficient implementation using applySubstringMap
         HashMap<String, String> tempMap = new HashMap<>();
         tempMap.put(substring, cat);
-        applySubstringMap(tempMap);
+        TransactionUtility.applySubstringMap(manager, tempMap);
 
         // Add to main substring map data member
         manager.getSsMap().put(substring, cat);
     }
 
-    public void assignCategory(Transaction t, String currentCat, String newCat) {
-        /**
-         * Maps transaction ID to category and saves in idMap
-         */
-        // Remove transaction from current category list
-        manager.getCategories().get(currentCat).remove(t);
-        // Add transaction to desired category list
-        manager.getCategories().get(newCat).add(t);
-        // Modify idMap to contain new mapping
-        if (manager.getIdMap().keySet().contains(t.getId())) {
-            // Remove old map element and replace with new one
-            manager.getIdMap().remove(t.getId());
-            manager.getIdMap().put(t.getId(), newCat);
-        }
-    }
 
-    public void applySubstringMap(HashMap<String, String> map) {
-        /**
-         * Applies given substring map to all transactions in all categories and moves them accordingly
-         * @param map Substring map to be applied
-         */
-        // Iterate through each substring in the map
-        for (String substring : map.keySet()) {
-            // Get destination category from substring map
-            String category = map.get(substring);
-            // Iterate through all categories
-            for (String catName : manager.getCategories().keySet()) {
-                // Only search categories different from the destination category
-                if (catName != category) {
-                    // Get transaction list from categories
-                    ObservableList<Transaction> list = manager.getCategories().get(catName);
-                    // Temporary ArrayList to contain all transactions that require moving
-                    ArrayList<Transaction> moved = new ArrayList<>();
-                    // Iterate through transaction list
-                    for (Transaction t : list) {
-                        // Check to see if substring is contained within transaction ID
-                        if (t.getId().contains(substring)) {
-                            moved.add(t);
-                            // Remove transaction map from idMap if exists
-                            if(manager.getIdMap().containsKey(t.getId())) {
-                                manager.getIdMap().remove(t.getId());
-                            }
-                            // Add new mapping to idMap
-                            manager.getIdMap().put(t.getId(), category);
-                        }
-                    }
-                    // Move transactions in moved ArrayList
-                    for (Transaction t : moved) {
-                        assignCategory(t, catName, category);
-                    }
-                }
-            }
-        }
-    }
-
+    /**
+     * Allow user to map a specific transaction ID to desired category
+     */
     public void setCategory() {
-        /**
-         * Allow user to map a specific transaction ID to desired category
-         */
         // Create new Popup object
         Popup catSelector = new Popup();
         // Create listView to hold categories
@@ -371,7 +320,7 @@ public class MainViewController implements Initializable {
 
                 // Move category to new category
                 // TODO: Apply new mapping to all transactions
-                assignCategory(selected, manager.getSelectedCategory(), newCat);
+                TransactionUtility.assignCategory(manager, selected, manager.getSelectedCategory(), newCat);
 
                 // Close popup
                 catSelector.hide();
@@ -384,10 +333,10 @@ public class MainViewController implements Initializable {
         catSelector.show(borderPane.getScene().getWindow());
     }
 
+    /**
+     * Imports all files with CSV suffix and uses loadStatement to add transactions
+     */
     public void importStatements() {
-        /**
-         * Imports all files with CSV suffix and uses loadStatement to add transactions
-         */
         // Create and display DirectoryChooser
         DirectoryChooser dirChoose = new DirectoryChooser();
         dirChoose.setTitle("Select the directory where all statements are stored");
@@ -402,23 +351,23 @@ public class MainViewController implements Initializable {
         }
     }
 
+    /**
+     * Loads a JSON-type idMap
+     * @param map idMap file path
+     * @param hashMap Destination map for all transactions
+     */
     private void loadMap(String map, HashMap<String, String> hashMap) {
-        /**
-         * Loads a JSON-type idMap
-         * @param map idMap file path
-         * @param hashMap Destination map for all transactions
-         */
         JSONReader reader = new JSONReader();
         hashMap.putAll(reader.readIDMAp(map));
         updateCategoryList();
     }
 
+    /**
+     * Saves idMap to destination folder
+     * @param map idMap file path
+     * @param hashMap HashMap to be stored in json file
+     */
     private void saveMap(String map, HashMap<String, String> hashMap) {
-        /**
-         * Saves idMap to destination folder
-         * @param map idMap file path
-         * @param hashMap HashMap to be stored in json file
-         */
         JSONReader reader = new JSONReader();
         try {
             reader.saveIDMap(map, hashMap);
@@ -427,11 +376,11 @@ public class MainViewController implements Initializable {
         }
     }
 
+    /**
+     * Load a csv-type bank statement from given file
+     * @param filePath Path to csv file
+     */
     private void loadStatement(String filePath) {
-        /**
-         * Load a csv-type bank statement from given file
-         * @param filePath Path to csv file
-         */
         // Read transactions from statement csv file
         ObservableList<Transaction> rawTransactions = CSVReader.readStatement(filePath);
 
@@ -457,10 +406,10 @@ public class MainViewController implements Initializable {
         }
     }
 
+    /**
+     * Saves both the idMap and ssMap HashMaps to json filetype
+     */
     public void saveMaps() {
-        /**
-         * Saves both the idMap and ssMap HashMaps to json filetype
-         */
         saveMap(manager.IDMAP_NAME, manager.getIdMap());
         saveMap(manager.SSMAP_NAME, manager.getSsMap());
     }
@@ -473,6 +422,10 @@ public class MainViewController implements Initializable {
         viewMap(true);
     }
 
+    /**
+     * Launches map viewer
+     * @param viewSsMap Selects map to be viewed
+     */
     private void viewMap(boolean viewSsMap) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("MapViewer.fxml"));
@@ -497,7 +450,10 @@ public class MainViewController implements Initializable {
 
     }
 
-    public void viewAnnualSummary()
+    /**
+     * Launches view monthly statement view
+     */
+    public void viewMonthlySummary()
     {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("MonthlySummaryView.fxml"));
@@ -516,5 +472,22 @@ public class MainViewController implements Initializable {
         }
     }
 
+    public void viewCategories() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewCategories.fxml"));
+            Parent root = loader.load();
+            ViewCategoriesController controller = (ViewCategoriesController) loader.getController();
+
+            // Set Model
+            controller.setModel(manager);
+
+            Stage stage = new Stage();
+            stage.setTitle("View Categories");
+            stage.setScene(new Scene(root, 600, 400));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

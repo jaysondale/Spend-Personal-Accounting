@@ -8,7 +8,7 @@
 
 <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainViewController">
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
+      <MenuBar fx:id="mainMenuBar" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -22,15 +22,21 @@
               <MenuItem mnemonicParsing="false" text="Delete" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Category">
+                <items>
+                    <MenuItem mnemonicParsing="false" text="Edit Categories" onAction="#viewCategories" />
+                    <MenuItem mnemonicParsing="false" text="View Keywords for Category" onAction="#viewCategories" />
+                </items>
+            </Menu>
             <Menu mnemonicParsing="false" text="Statistics">
                 <items>
-                    <MenuItem mnemonicParsing="false" text="View Annual Summary" onAction="#viewAnnualSummary"/>
+                    <MenuItem mnemonicParsing="false" text="View Monthly Summary" onAction="#viewMonthlySummary"/>
                 </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Transaction Mapping">
                 <items>
                     <MenuItem mnemonicParsing="false" onAction="#viewIdMap" text="View/Edit ID Map" />
-                    <MenuItem mnemonicParsing="false" onAction="#viewSsMap" text="View/Edit Substring Map" />
+                    <MenuItem mnemonicParsing="false" onAction="#viewSsMap" text="View/Edit Keyword Map" />
                 </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Help">
@@ -72,11 +78,11 @@
              <Label fx:id="numTransLabel" text="Num Transactions Label" />
              <Label fx:id="avgTransLabel" text="Avg Transaction" />
              <Line endX="100.0" startX="-100.0" />
-             <Label text="New Substring Map">
+             <Label text="New Keyword Map">
                  <font>
                      <Font size="18.0" />
                  </font></Label>
-            <TextField fx:id="substringTextField" promptText="Substring" />
+            <TextField fx:id="substringTextField" promptText="Keyword" />
             <ComboBox fx:id="catComboBox" prefWidth="150.0" promptText="Category" />
              <Button fx:id="setButton" mnemonicParsing="false" onAction="#createSubstringMap" text="Set" />
              <Line endX="100.0" startX="-100.0" />

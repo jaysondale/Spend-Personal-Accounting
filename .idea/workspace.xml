@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Statement-Analyzer-GUI-V2:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Statement_Analyzer_GUI_V2_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/com_apple_AppleJavaExtensions_1_4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/JavaFX11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Statement-Analyzer-GUI-V2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Statement-Analyzer-GUI-V2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Statement-Analyzer-GUI-V2/sample/EditMapController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Statement-Analyzer-GUI-V2/sample/EditMapController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Statement-Analyzer-GUI-V2/sample/JSONReader$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Statement-Analyzer-GUI-V2/sample/JSONReader$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Statement-Analyzer-GUI-V2/sample/JSONReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Statement-Analyzer-GUI-V2/sample/JSONReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Statement-Analyzer-GUI-V2/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Statement-Analyzer-GUI-V2/sample/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Statement-Analyzer-GUI-V2/sample/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Statement-Analyzer-GUI-V2/sample/MainView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Statement-Analyzer-GUI-V2/sample/MainViewController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Statement-Analyzer-GUI-V2/sample/MainViewController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Statement-Analyzer-GUI-V2/sample/MainViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Statement-Analyzer-GUI-V2/sample/MainViewController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Statement-Analyzer-GUI-V2/sample/MonthlySummaryController$AnnualSummary.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Statement-Analyzer-GUI-V2/sample/MonthlySummaryController$AnnualSummary.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Statement-Analyzer-GUI-V2/sample/id_map.json" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Statement-Analyzer-GUI-V2/sample/id_map.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Statement-Analyzer-GUI-V2/sample/ss_map.json" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Statement-Analyzer-GUI-V2/sample/ss_map.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/EditMapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/EditMapController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/JSONReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/JSONReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/MainView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/TransactionUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/TransactionUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/ViewCategories.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/ViewCategories.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/ViewCategoriesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/ViewCategoriesController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,8 +94,12 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1X365FNRpKFIAnExFsN8DEf5rXE" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
@@ -86,15 +120,22 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/out/production/Statement-Analyzer-GUI-V2" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.23057953" />
-    <property name="project.structure.side.proportion" value="0.24907523" />
+    <property name="project.structure.side.proportion" value="0.21031208" />
     <property name="recentsLimit" value="5" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/out/production/Statement-Analyzer-GUI-V2" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -152,6 +193,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Run Jar" type="JarApplication">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/Statement_Analyzer_GUI_V2_jar/Statement-Analyzer-GUI-V2.jar" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="TestNG">
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -173,6 +220,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JAR Application.Run Jar" />
+    </list>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -208,14 +259,16 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="420" y="171" width="811" height="669" key="#Project_Structure" timestamp="1581774065626">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="1842" y="-57" width="1254" height="724" key="#Project_Structure" timestamp="1586702165730">
+      <screen x="1440" y="-180" width="1920" height="1080" />
     </state>
+    <state x="1842" y="-57" width="1254" height="724" key="#Project_Structure/0.0.1440.900/1440.-180.1920.1080@1440.-180.1920.1080" timestamp="1586702165730" />
     <state x="420" y="171" width="811" height="669" key="#Project_Structure/0.0.1440.900@0.0.1440.900" timestamp="1581774065626" />
     <state x="560" y="205" key="#Project_Structure/0.0.1920.1080@0.0.1920.1080" timestamp="1580264261000" />
-    <state x="318" y="168" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583635863073">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="1864" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586701358335">
+      <screen x="1440" y="-180" width="1920" height="1080" />
     </state>
+    <state x="1864" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900/1440.-180.1920.1080@1440.-180.1920.1080" timestamp="1586701358335" />
     <state x="318" y="168" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1583635863073" />
     <state x="424" y="202" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1582944600595" />
     <state x="773" y="256" key="#com.intellij.ide.util.MemberChooser" timestamp="1586449594522">
@@ -223,45 +276,54 @@
     </state>
     <state x="2213" y="76" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900/1440.-180.1920.1080@1440.-180.1920.1080" timestamp="1585176750148" />
     <state x="773" y="256" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1586449594522" />
+    <state x="1873" y="118" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1586700811029">
+      <screen x="1440" y="-180" width="1920" height="1080" />
+    </state>
+    <state x="1873" y="118" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1440.900/1440.-180.1920.1080@1440.-180.1920.1080" timestamp="1586700811029" />
     <state x="798" y="240" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1580264233341">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="798" y="240" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1580264233341" />
-    <state width="1878" height="233" key="GridCell.Tab.0.bottom" timestamp="1586453911338">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="2120" y="85" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog" timestamp="1586534249484">
+      <screen x="1440" y="-180" width="1920" height="1080" />
     </state>
-    <state width="1878" height="229" key="GridCell.Tab.0.bottom/0.0.1440.900/1440.-180.1920.1080@1440.-180.1920.1080" timestamp="1585187144623" />
+    <state x="2120" y="85" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog/0.0.1440.900/1440.-180.1920.1080@1440.-180.1920.1080" timestamp="1586534249484" />
+    <state width="939" height="231" key="GridCell.Tab.0.bottom" timestamp="1586706333460">
+      <screen x="1440" y="-180" width="1920" height="1080" />
+    </state>
+    <state width="939" height="231" key="GridCell.Tab.0.bottom/0.0.1440.900/1440.-180.1920.1080@1440.-180.1920.1080" timestamp="1586706333460" />
     <state width="1398" height="307" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1585056083660" />
-    <state width="1878" height="233" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1586453911338" />
+    <state width="1878" height="233" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1586455820362" />
     <state width="1878" height="379" key="GridCell.Tab.0.bottom/0.23.1440.877/1440.-180.1920.1080@1440.-180.1920.1080" timestamp="1585185835482" />
-    <state width="1878" height="233" key="GridCell.Tab.0.center" timestamp="1586453911337">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="939" height="231" key="GridCell.Tab.0.center" timestamp="1586706333459">
+      <screen x="1440" y="-180" width="1920" height="1080" />
     </state>
-    <state width="1878" height="229" key="GridCell.Tab.0.center/0.0.1440.900/1440.-180.1920.1080@1440.-180.1920.1080" timestamp="1585187144621" />
+    <state width="939" height="231" key="GridCell.Tab.0.center/0.0.1440.900/1440.-180.1920.1080@1440.-180.1920.1080" timestamp="1586706333459" />
     <state width="1398" height="307" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1585056083659" />
-    <state width="1878" height="233" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1586453911337" />
+    <state width="1878" height="233" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1586455820362" />
     <state width="1878" height="379" key="GridCell.Tab.0.center/0.23.1440.877/1440.-180.1920.1080@1440.-180.1920.1080" timestamp="1585185835480" />
-    <state width="1878" height="233" key="GridCell.Tab.0.left" timestamp="1586453911336">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="939" height="231" key="GridCell.Tab.0.left" timestamp="1586706333458">
+      <screen x="1440" y="-180" width="1920" height="1080" />
     </state>
-    <state width="1878" height="229" key="GridCell.Tab.0.left/0.0.1440.900/1440.-180.1920.1080@1440.-180.1920.1080" timestamp="1585187144620" />
+    <state width="939" height="231" key="GridCell.Tab.0.left/0.0.1440.900/1440.-180.1920.1080@1440.-180.1920.1080" timestamp="1586706333458" />
     <state width="1398" height="307" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1585056083658" />
-    <state width="1878" height="233" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1586453911336" />
+    <state width="1878" height="233" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1586455820361" />
     <state width="1878" height="379" key="GridCell.Tab.0.left/0.23.1440.877/1440.-180.1920.1080@1440.-180.1920.1080" timestamp="1585185835479" />
-    <state width="1878" height="233" key="GridCell.Tab.0.right" timestamp="1586453911337">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="939" height="231" key="GridCell.Tab.0.right" timestamp="1586706333460">
+      <screen x="1440" y="-180" width="1920" height="1080" />
     </state>
-    <state width="1878" height="229" key="GridCell.Tab.0.right/0.0.1440.900/1440.-180.1920.1080@1440.-180.1920.1080" timestamp="1585187144622" />
+    <state width="939" height="231" key="GridCell.Tab.0.right/0.0.1440.900/1440.-180.1920.1080@1440.-180.1920.1080" timestamp="1586706333460" />
     <state width="1398" height="307" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1585056083659" />
-    <state width="1878" height="233" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1586453911337" />
+    <state width="1878" height="233" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1586455820362" />
     <state width="1878" height="379" key="GridCell.Tab.0.right/0.23.1440.877/1440.-180.1920.1080@1440.-180.1920.1080" timestamp="1585185835481" />
     <state x="469" y="179" key="SettingsEditor" timestamp="1580262258115">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="469" y="179" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1580262258115" />
-    <state x="529" y="406" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1581773887793">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="2145" y="307" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1586540295662">
+      <screen x="1440" y="-180" width="1920" height="1080" />
     </state>
+    <state x="2145" y="307" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1440.900/1440.-180.1920.1080@1440.-180.1920.1080" timestamp="1586540295662" />
     <state x="529" y="406" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1440.900@0.0.1440.900" timestamp="1581773887793" />
     <state x="194" y="135" key="new project wizard" timestamp="1585160898429">
       <screen x="0" y="0" width="1440" height="900" />

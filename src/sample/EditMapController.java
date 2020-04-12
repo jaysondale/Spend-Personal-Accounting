@@ -51,6 +51,11 @@ public class EditMapController {
         category = catComboBox.getSelectionModel().getSelectedItem();
         map.put(key, category);
 
+        // Update transaction data set
+        HashMap<String, String> map = new HashMap<>();
+        map.put(key, category);
+        TransactionUtility.applySubstringMap(manager, map);
+
         // Update map stored in map view controller
         mapViewerController.setMap();
 

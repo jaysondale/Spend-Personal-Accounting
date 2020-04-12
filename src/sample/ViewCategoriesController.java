@@ -7,10 +7,12 @@ import javafx.scene.control.ListView;
 
 import java.util.HashMap;
 
-public class EditCategoriesViewController {
+public class ViewCategoriesController {
 
-    @FXML ListView catListView;
-    @FXML ListView ssListView;
+    @FXML private ListView<String> catListView;
+    @FXML private ListView<String> ssListView;
+
+    private ObservableList<String> substrings;
 
     private TransactionAnalyzerManager manager;
 
@@ -29,13 +31,13 @@ public class EditCategoriesViewController {
      * Update list view to contain substrings mapped to selected category
      */
     public void updateSsList() {
-        String selectedCat = (String) catListView.getSelectionModel().getSelectedItem();
-        ObservableList<String> substrings = FXCollections.observableArrayList();
+        String selectedCat = catListView.getSelectionModel().getSelectedItem();
+        substrings = FXCollections.observableArrayList();
         HashMap<String, String> ssMap = manager.getSsMap();
         for (String substring : ssMap.keySet()) {
             String category = ssMap.get(substring);
-            if (category == selectedCat) {
-                substrings.add(category);
+            if (category.equals(selectedCat)) {
+                substrings.add(substring);
             }
         }
         ssListView.setItems(substrings);

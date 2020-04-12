@@ -5,17 +5,22 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import com.apple.eawt.*;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        TransactionAnalyzerManager manager = new TransactionAnalyzerManager("id_map.json", "ss_map.json");
+        TransactionAnalyzerManager manager = new TransactionAnalyzerManager("./lib/id_map.json", "./lib/ss_map.json");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MainView.fxml"));
         Parent root = loader.load();
 
         MainViewController controller = (MainViewController) loader.getController();
         controller.setModel(manager);
+        primaryStage.setOnCloseRequest(windowEvent -> {
+            // Save maps upon close
+            controller.saveMaps();
+        });
 
 
 
