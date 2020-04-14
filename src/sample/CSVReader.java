@@ -16,13 +16,18 @@ public class CSVReader {
          * @param fName Path to csv file
          */
 
+        System.out.println("Opening file: " + fName);
+
         // Create return transaction list and initialize with empty ObservableList
         ObservableList tList = FXCollections.observableArrayList();
         BufferedReader br = null;
-        String line = "";
+        String line;
 
         // Define csv delimiter
         String cvsSplitBy = ",";
+
+        // Selected bank format
+        BankFormat format = BankFormat.TD;
 
         // Attempt to read file
         try {
@@ -32,8 +37,26 @@ public class CSVReader {
                 // Split into array of values
                 String[] rawTransaction = line.split(cvsSplitBy);
 
+                // Check to ensure the line is in the proper format (loop until size is proper)
+                while (rawTransaction.length > format.getLineSize()) {
+                    // Hold rawTransaction in temp variable
+                    String[] tempTransaction = rawTransaction;
+                    // Reinitialize rawTransaction to be 1 unit shorter
+                    rawTransaction = new String[rawTransaction.length - 1];
+
+                    int readIndex = 0;
+                    for (int i = 0; i < rawTransaction.length; i++) {
+                        if (i == format.getIdIndex()) {
+                            rawTransaction[i] = tempTransaction[readIndex] + tempTransaction[readIndex + 1]; // Merge id and adjacent value
+                            readIndex++;
+                        } else {
+                            rawTransaction[i] = tempTransaction[readIndex];
+                        }
+                        readIndex++;
+                    }
+                }
+
                 // Create new transaction object and add values
-                // TODO: Handle different bank statement types
                 Transaction newTransaction = new Transaction(
                         rawTransaction[0],
                         rawTransaction[1],
