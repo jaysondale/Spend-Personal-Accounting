@@ -349,6 +349,9 @@ public class MainViewController implements Initializable {
                 loadStatement(file.getPath());
             }
         }
+
+        // Refresh table
+        transactionTableView.refresh();
     }
 
     /**
