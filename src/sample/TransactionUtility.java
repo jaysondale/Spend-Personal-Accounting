@@ -44,12 +44,7 @@ public class TransactionUtility {
 
         // Move transactions in moved ArrayList
         for (MoveTransaction mt : moved) {
-            // Remove transaction map from idMap if exists
-            if(manager.getIdMap().containsKey(mt.t.getId())) {
-                manager.getIdMap().remove(mt.t.getId());
-            }
-            // Add new mapping to idMap
-            manager.getIdMap().put(mt.t.getId(), mt.newCat);
+            // Assign new categories
             assignCategory(manager, mt.t, mt.currentCat, mt.newCat);
         }
     }
@@ -90,9 +85,10 @@ public class TransactionUtility {
         manager.getCategories().get(newCat).add(t);
         // Modify idMap to contain new mapping
         if (manager.getIdMap().keySet().contains(t.getId())) {
-            // Remove old map element and replace with new one
+            // Remove old map element
             manager.getIdMap().remove(t.getId());
-            manager.getIdMap().put(t.getId(), newCat);
         }
+        // Add new map element
+        manager.getIdMap().put(t.getId(), newCat);
     }
 }
