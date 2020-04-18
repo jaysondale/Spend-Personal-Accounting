@@ -1,10 +1,10 @@
-# Statement-Analyzer-GUI-V2
-Statement Analyzer is a JavaFX-based personal accounting system that allows users to efficiently categorize transactions that
+# Spend | Personal Accounting System
+Spend is a JavaFX-based personal accounting system that allows users to efficiently categorize transactions that
 appear on credit card and banking statements. Users can create their own categories and populate them with transactions by
 creating keyword maps that pull all categories containing a specific keyword.
 ## User Instructions
-*Note: Statement Analyzer has only been tested on TD credit card and banking statements. The long term goal is to make
-Statement Analyzer compatible with all banks.*
+*Note: Spend has only been tested on TD credit card and banking statements. The long term goal is to make
+Spend compatible with all banks.*
 
 The user must begin by downloading all of their banking data from the TD website in a CSV format. After downloading, all
 statements must be put in a single directory containing no other files.
